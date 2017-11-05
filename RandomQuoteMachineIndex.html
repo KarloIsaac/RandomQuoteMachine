@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script>		
+		function requestQuote() {
+			var xmlHttpRequest = new XMLHttpRequest();
+			xmlHttpRequest.onreadystatechange = function() {
+				document.getElementsByTagName("body").innerHTML = "algo";
+			};
+			xmlHttpRequest.open("POST", "http://api.forismatic.com/api/1.0/", true);
+			xmlHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xmlHttpRequest.send("method=getQuote&format=jason&lang=en");
+		}
+	</script>
     <meta charset="utf-8">
     <title></title>
 </head>
 <body>
     <form class="" action="http://api.forismatic.com/api/1.0/" method="post">
-
+        <input type="hidden" name="method" value="getQuote">
+        <input type="hidden" name="format" value="json">
+        <input type="hidden" name="lang" value="en">
         <input type="submit" name="" value="Enviar">
     </form>
-
+	<button type="button" onclick="requestQuote()">Request Quote</button>
 </body>
 </html>
