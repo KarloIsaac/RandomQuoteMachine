@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script>		
+	<script>
 		function requestQuote() {
 			var xmlHttpRequest = new XMLHttpRequest();
 			xmlHttpRequest.onreadystatechange = function() {
-				document.getElementsByTagName("body").innerHTML = "algo";
+				var responseReceived = true;//this.readyState == 4 && this.status == 200;
+				if (responseReceived) {
+					document.getElementById("change_holder").innerHTML =
+							"change detected: " + xmlHttpRequest.responseText;
+				}
 			};
 			xmlHttpRequest.open("POST", "http://api.forismatic.com/api/1.0/", true);
-			xmlHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			xmlHttpRequest.send("method=getQuote&format=jason&lang=en");
+		//	xmlHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xmlHttpRequest.send("method=getQuote&key=457653&format=xml&lang=en");
 		}
 	</script>
     <meta charset="utf-8">
     <title></title>
 </head>
 <body>
-    <form class="" action="http://api.forismatic.com/api/1.0/" method="post">
+    <form class="" action="http://api.forismatic.com/api/1.0/" method="POST">
         <input type="hidden" name="method" value="getQuote">
         <input type="hidden" name="format" value="json">
         <input type="hidden" name="lang" value="en">
         <input type="submit" name="" value="Enviar">
     </form>
 	<button type="button" onclick="requestQuote()">Request Quote</button>
+	<div class="" id="change_holder"></div>
 </body>
 </html>
