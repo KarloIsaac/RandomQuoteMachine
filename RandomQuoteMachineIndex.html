@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+    <title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 	<script>
 		function requestQuote() {
 			var xmlHttpRequest = new XMLHttpRequest();
 			xmlHttpRequest.onreadystatechange = function() {
-				var responseReceived = true;//this.readyState == 4 && this.status == 200;
+				var responseReceived = this.readyState === 4 && this.status === 200;
 				if (responseReceived) {
 					document.getElementById("change_holder").innerHTML =
 							"change detected: " + xmlHttpRequest.responseText;
 				}
 			};
-			xmlHttpRequest.open("POST", "http://api.forismatic.com/api/1.0/", true);
-		//	xmlHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			xmlHttpRequest.send("method=getQuote&key=457653&format=xml&lang=en");
+			xmlHttpRequest.open("POST",
+			"http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=1c727469fc4c73c4fb1c00057856b1af", true);
+			xmlHttpRequest.send();
+		}
+
+		function getCORS() {
+		    var xhr = new XMLHttpRequest();
+		    xhr.open('GET', 'http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=1c727469fc4c73c4fb1c00057856b1af');
+			//xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+			xhr.onload = function myFunction(json) {console.log("from getCORS " + xhr.responseText);};
+		    xhr.send();
+		    return xhr;
+		}
+
+		function myFunction(json) {
+			console.log(json);
 		}
 	</script>
-    <meta charset="utf-8">
-    <title></title>
 </head>
 <body>
-    <form class="" action="http://api.forismatic.com/api/1.0/" method="POST">
+    <form class="" id="myForm" action="http://api.forismatic.com/api/1.0/" method="POST">
         <input type="hidden" name="method" value="getQuote">
         <input type="hidden" name="format" value="json">
         <input type="hidden" name="lang" value="en">
-        <input type="submit" name="" value="Enviar">
+        <!--input type="submit" name="" value="Enviar"-->
     </form>
 	<button type="button" onclick="requestQuote()">Request Quote</button>
 	<div class="" id="change_holder"></div>
