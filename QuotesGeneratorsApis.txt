@@ -1,2 +1,1 @@
-http://forismatic.com/en/api/
 https://www.reddit.com/r/FreeCodeCamp/comments/4b1fox/free_api_for_random_quote_machine/
