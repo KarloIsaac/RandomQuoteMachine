@@ -4,78 +4,10 @@
 	<meta charset="utf-8">
     <title></title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-	<script>
-		function requestWeather() {
-			var xmlHttpRequest = new XMLHttpRequest();
-			xmlHttpRequest.onreadystatechange = function() {
-				var responseReceived = this.readyState === 4 && this.status === 200;
-				if (responseReceived) {
-					document.getElementById("change_holder").innerHTML =
-							"change detected: " + xmlHttpRequest.responseText;
-				}
-			};
-			xmlHttpRequest.open("POST",
-			"http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=1c727469fc4c73c4fb1c00057856b1af", true);
-			xmlHttpRequest.send();
-		}
-
-		function requestQuote() {
-			var xmlHttpRequest = new XMLHttpRequest();
-			xmlHttpRequest.onreadystatechange = function() {
-				var responseReceived = this.readyState === 4 && this.status === 200;
-				if (responseReceived) {
-					document.getElementById("change_holder").innerHTML =
-							"change detected: " + xmlHttpRequest.responseText;
-				}
-			};
-			xmlHttpRequest.open("POST",
-			"http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", true);
-			xmlHttpRequest.send();
-		}
-
-		function requestChuckNorrisQuote() {
-			var xmlHttpRequest = new XMLHttpRequest();
-			xmlHttpRequest.onreadystatechange = function() {
-				var responseReceived = this.readyState === 4 && this.status === 200;
-				if (responseReceived) {
-					document.getElementById("change_holder").innerHTML =
-							"change detected: " + xmlHttpRequest.responseText;
-				}
-			};
-			xmlHttpRequest.open("POST",
-			"http://api.icndb.com/jokes/random", true);
-			xmlHttpRequest.send();
-		}
-
-		function getCORS() {
-		    var xhr = new XMLHttpRequest();
-		    xhr.open('GET', 'http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=1c727469fc4c73c4fb1c00057856b1af');
-			xhr.onload = function myFunction(json) {console.log("from getCORS " + xhr.responseText);};
-		    xhr.send();
-		    return xhr;
-		}
-
-		function mycallback(json) {
-			console.log(json);
-		}
-		function testFunction() {
-			$.getJSON("http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=",
-				function(a) {
-				  $("body").append(a[0].content + "<p>— " + a[0].title + "</p>");
-			  });
-		}
-	</script>
-	<script src="http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback"></script>
-
+	<script src="Scripts.js"></script>
 </head>
 <body>
-    <form class="" id="myForm" action="http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback" method="GET">
-        <input type="hidden" name="method" value="getQuote">
-        <input type="hidden" name="format" value="json">
-        <input type="hidden" name="lang" value="en">
-        <!--input type="submit" name="" value="Enviar"-->
-    </form>
+
 	<button type="button" onclick="requestQuote()">Request Quote</button>
 	<div class="" id="change_holder"></div>
 </body>
