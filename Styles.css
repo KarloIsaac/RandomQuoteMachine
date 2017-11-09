@@ -1,0 +1,9 @@
+body {
+    display: flex;
+    flex-flow: column;
+}
+
+.quotes_section {
+    max-width: 800px;
+    min-width: 500px;
+}

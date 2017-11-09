@@ -5,10 +5,17 @@
     <title></title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="Scripts.js"></script>
+	<link rel="stylesheet" href="Styles.css">
 </head>
 <body>
-
-	<button type="button" onclick="requestQuote()">Request Quote</button>
-	<div class="" id="change_holder"></div>
+	<div class="quotes_section" >
+		<h1 id="quote_holder"></h1>
+		<h3 id="author"></h3>
+	</div>
+	<div class="buttons_section">
+		<button class="menuButton" type="button" onclick="requestQuote()">Request Quote</button>
+		<button class="menuButton" type="button" onclick=""><img src="https://cdn4.iconfinder.com/data/icons/social-media-2070/140/_twitter-20.png"/></button>
+	</div>
+	<script id="jsonpRequester" src="http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=jsonp&lang=en&jsonp=mycallback"></script>
 </body>
 </html>
