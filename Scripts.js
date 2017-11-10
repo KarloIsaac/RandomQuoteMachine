@@ -1,6 +1,6 @@
 
 function mycallback(jsonObject) {
-    document.getElementById("quote_holder").innerHTML = jsonObject.quoteText;
+    document.getElementById("quote_holder").innerHTML = "\"" + jsonObject.quoteText + "\"";
     document.getElementById("author").innerHTML = jsonObject["quoteAuthor"];
 }
 

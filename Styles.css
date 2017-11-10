@@ -3,7 +3,44 @@ body {
     flex-flow: column;
 }
 
+h1 {
+    font-family: 'Bad Script';
+    font-size: 40px;
+}
+
+h3 {
+    font-family: 'Tangerine';
+    font-size: xx-large
+}
+
+.main_panel {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    min-width: 500px;
+}
+
+.menuButton {
+    height: 24px;
+    margin: 3px;
+}
+
+.menuButton:hover {
+    cursor: pointer;
+}
+
 .quotes_section {
     max-width: 800px;
-    min-width: 500px;
+
+}
+
+.debug {
+    border-style: dashed;
+    border-width: thin;
+    border-color: red;
+}
+
+.buttons_section {
+    display: flex;
+    width: 100%;
 }
