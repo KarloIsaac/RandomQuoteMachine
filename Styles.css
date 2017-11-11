@@ -1,6 +1,5 @@
 body {
-    display: flex;
-    flex-flow: column;
+
 }
 
 h1 {
@@ -11,6 +10,12 @@ h1 {
 h3 {
     font-family: 'Tangerine';
     font-size: xx-large
+}
+
+#main_wrapper {
+    display: flex;
+    flex-flow: column;
+    background-color: yellow;
 }
 
 .main_panel {
@@ -43,4 +48,8 @@ h3 {
 .buttons_section {
     display: flex;
     width: 100%;
+}
+
+#quotes_source {
+
 }
