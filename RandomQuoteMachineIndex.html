@@ -6,22 +6,20 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="Scripts.js"></script>
 	<link rel="stylesheet" href="Styles.css">
-	<link href="https://fonts.googleapis.com/css?family=Bad+Script|Tangerine" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bad+Script|Tangerine|Montserrat" rel="stylesheet">
 </head>
 <body>
-	<div id="main_wrapper">		
-		<div class="main_panel debug">
-			<div class="quotes_section" >
-				<h1 id="quote_holder"></h1>
-				<h3 id="author"></h3>
-				<div class="buttons_section debug">
-					<button class="menuButton" type="button" onclick="requestQuote()">Load a new quote</button>
-					<button class="menuButton" type="button" onclick=""><img src="https://cdn4.iconfinder.com/data/icons/social-media-2070/140/_twitter-20.png"/></button>
-				</div>
+	<div class="main_panel">
+		<div class="quotes_section" >
+			<h1 id="quote_holder"></h1>
+			<h3 id="author"></h3>
+			<div class="buttons_section">
+				<button class="menuButton" type="button" onclick="requestQuote()">Load a new quote</button>
+				<button class="menuButton" type="button" title="Share on Twitter" onclick=""><img src="https://cdn4.iconfinder.com/data/icons/social-media-2070/140/_twitter-20.png"/></button>
 			</div>
 		</div>
-		<p id="quotes_source">These nice quotes are courtesy of <a href="http://forismatic.com/en" target="_blank">forismatic</a></p>
 	</div>
+	<p id="quotes_source">These nice quotes are courtesy of <a href="http://forismatic.com/en" target="_blank">forismatic</a></p>
 	<script id="jsonpRequester" src="http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=jsonp&lang=en&jsonp=mycallback"></script>
 </body>
 </html>

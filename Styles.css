@@ -1,5 +1,11 @@
-body {
+html {
+    height:100%;
+}
 
+body {
+    display: flex;
+    flex-flow: column;
+    height:100%;
 }
 
 h1 {
@@ -9,25 +15,27 @@ h1 {
 
 h3 {
     font-family: 'Tangerine';
-    font-size: xx-large
-}
-
-#main_wrapper {
+    font-size: xx-large;
     display: flex;
-    flex-flow: column;
-    background-color: yellow;
+    justify-content: flex-end;
 }
 
 .main_panel {
     display: flex;
     flex-flow: column;
     align-items: center;
+    justify-content: center;
     min-width: 500px;
+    flex-grow: 1;
+    color: #6a608b;
 }
 
 .menuButton {
     height: 24px;
     margin: 3px;
+    border-radius: 5px;
+    background-color: rgb(203, 174, 208);
+    font-family: 'Montserrat';
 }
 
 .menuButton:hover {
@@ -36,7 +44,6 @@ h3 {
 
 .quotes_section {
     max-width: 800px;
-
 }
 
 .debug {
@@ -51,5 +58,5 @@ h3 {
 }
 
 #quotes_source {
-
+    color: #607D8B;
 }
